@@ -1,5 +1,40 @@
 # Prueba-N3-Awakelab
-Base de datos
+<h3>Manejo base de datos Oracle 11g </h3>
+
+<b> Descripción del ejercicio </b>
+
+Dado su gran desempeño en evaluaciones y su irremplazable participación durante las jornadas de bootcamp, Awakelab le ha encomendado el desarrollo de un nuevo proyecto que contempla la implementación de un nuevo modelo formativo. Para ello, se hace realmente necesario un sistema de evaluación del cumplimiento de las aprendizajes y desarrollo de competencias como uno de sus procesos internos.
+
+Para ello, le hace llegar una pequeña descripción del como debe funcionar y más importante aún, que información se requiere obtener de dicho sistema. Cada evaluación consiste de 1 ó más preguntas con alternativas, sin embargo, para que este proceso sea más flexible, y para aumentar la dificultad de los problemas, uno de los requerimientos es que las preguntas, de las que consisten las evaluaciones, tengan una o más soluciones.
+
+Ejemplo: “¿Cuál de las siguientes propiedades presenta el paradigma POO? 1 – Herencia 2 – Polimorfismo 3 – Ampliación de cupo automático.”
+
+Para ello, un alto cargo de la institución le describe que considera necesario gestionar un TEST, el que debe contar con un identificador único, nombre, descripción, programa (por ejemplo, Programación FullStack Java Trainnie o Programación Android), la unidad a la que pertenece, además del autor y la fecha de creación. Cada TEST puede tener multiples PREGUNTAS, las que se identifican con un identificador único, un enunciado y un puntaje asociado, y a su vez, cada una de estas tiene múltiples ALTERNATIVAS posibles, las que tienen un identificador único, una descripción, y un valor lógico que señala si es o no una respuesta correcta, más un valor que indica el porcentaje que aporta esta alternativa (de ser una respuesta correcta) al puntaje total de la pregunta.
+
+Por ejemplo, recogiendo el antes citado (sobre el POO), si la pregunta “¿Cuál de las siguientes propiedades presenta el paradigma POO?” tiene un puntaje asociado de 10 puntos, las 2 respuestas correctas podrían aportar el 50% de dicho puntaje cada una. Entonces, al seleccionar solo 2 de estas alternativas, el estudiante sumaría el 100% del puntaje de la pregunta.
+
+Finalmente, las respuestas seleccionadas por los estudiantes que se enfrentan a cada evaluación, deben quedar guardadas de tal forma que quede registro de las respuestas seleccionadas por cada estudiante considerando el puntaje de cada respuesta.
+
+Además considere todas las entidades, atributos y relaciones de modo de poder responder a las siguientes preguntas por medio de la creación de comandos SQL:
+
+  1. Pregunta 1: Conocer el número de evaluaciones por curso. 
+  2. Pregunta 2: Conocer los cursos sin evaluaciones. 
+  3. Pregunta 3: Determinar las evaluaciones con deficiencia. Una evaluación es deficiente: a. Si no tiene preguntas. b. Si hay preguntas con 2 ó menos alternativas c. Si todas las alternativas son correctas o si todas las alternativas son incorrectas.
+  4. Pregunta 4: Determinar cuántos alumnos hay en cada curso. 
+  5. Pregunta 5: Obtener el puntaje no normalizado de cada evaluación. El puntaje no normalizado ha sido definido (requerimiento) como: P = buenas – malas/4. Si un alumno no contesta en una pregunta exactamente lo mismo que se ha definido como correcto, la pregunta cuenta como mala a menos que el alumno haya omitido.
+  6. Pregunta 6: Obtener el puntaje normalizado, o sea, de 1,0 a 7,0. 
+  7. Pregunta 7: Nombre de estudiantes de un curso determinado que aprueban una evaluación determinada (donde la nota de aprobación mínima es un 4,0).
+  8. Pregunta 8: Nota promedio de los estudiantes de un curso determinado, para una evaluación de terminada.
+
+Se espera lo siguiente:
+
+- Modelo lógico en OracleDataModeler. - Modelo relacional en OracleDataModeler. - DDL generado por OracleDataModeler. Script SQL que registre al menos 2 evaluaciones, con 10 preguntas y 4 alternativas.
+Script SQL que registre al menos 2 cursos de 10 estudiantes que respondan estas evaluaciones.
+Script SQL que responda las preguntas enumeradas anteriormente.
+
+<hr>
+
+<h3> Método de solución </h3>
 
 En el diseño del modelo físico de la base de datos se establece crear aparte de las tablas exigidas en la rúbrica la entidad CURSO, ESTUDIANTE, y RESPUESTAS. Se establece la relacion de muchos a muchos entre CURSO y ESTUDIANTE y en la tabla RESPUESTAs se almacenarán   por medio de relaciones las ID de ESTUDIANTE, ALTERNATIVA y EVALUACIÓN. 
 
